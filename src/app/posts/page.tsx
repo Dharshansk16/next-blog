@@ -1,15 +1,25 @@
 import React from "react";
+import Link from "next/link";
 
-export default function page() {
+interface PostProps {
+  id: String;
+  title: String;
+  body: String;
+}
+
+export default async function page() {
+  const response = await fetch("https://dummyjson.com/posts?limit=10");
+  const data: { posts: PostProps[] } = await response.json();
   return (
-    <div className="text-center text-xl md:text-4xl p-32 px-5">
-      <h1 className="text-center font-bold mb-4">All Posts</h1>
-      <p className="mx-auto text-md md:text-lg  max-w-[750px]  leading-normal">
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolores atque
-        impedit libero dolorum accusantium rerum commodi similique ex quibusdam.
-        Optio ullam officia fuga adipisci dolorum nesciunt nihil! Cum, officia
-        aperiam.
-      </p>
+    <div className="flex flex-col items-center text-center pt-24  px-5">
+      <h1 className="text-4xl font-bold mb-4">All Posts</h1>
+      <ul className="text-lg">
+        {data.posts.map((post, index) => (
+          <li key={index} className="mb-4">
+            <Link href={`posts/${post.id}`}>{post.title}</Link>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }
