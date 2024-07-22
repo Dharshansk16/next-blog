@@ -2,10 +2,8 @@ import React from "react";
 
 export default function Footer() {
   return (
-    <div>
-      <h1>
-        <footer>Footer</footer>
-      </h1>
-    </div>
+    <footer className="mt-auto text-center py-4">
+      <small>&copy;2024, All rights reserved.</small>
+    </footer>
   );
 }
