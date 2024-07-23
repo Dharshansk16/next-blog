@@ -1,7 +1,8 @@
 "use client";
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
 import { usePathname } from "next/navigation";
+import { LoginLink, LogoutLink } from "@kinde-oss/kinde-auth-nextjs";
 
 const navLinks = [
   {
@@ -16,13 +17,9 @@ const navLinks = [
     href: "/create-post",
     label: "Create",
   },
-  {
-    href: "/login",
-    label: "Login",
-  },
 ];
 
-export default function Header() {
+export default async function Header() {
   const pathName = usePathname();
   return (
     <div className="py-3  text-zinc-500 flex justify-between items-center px-4 font-semibold shadow-md">
@@ -39,6 +36,12 @@ export default function Header() {
               <Link href={item.href}>{item.label}</Link>
             </li>
           ))}
+          <li>
+            <LoginLink>Login</LoginLink>
+          </li>
+          <li>
+            <LogoutLink>Logout</LogoutLink>
+          </li>
         </ul>
       </nav>
     </div>
