@@ -13,8 +13,12 @@ export default async function Post({ id }: { id: string }) {
   }
   return (
     <div>
-      <h1 className="text-4xl mb-4 font-bold">{post.title}</h1>
-      <p className="text-lg leading-normal">{post.content}</p>
+      <h1 className="mb-12 text-4xl font-bold leading-normal tracking-tight  md:text-5xl lg:text-6xl">
+        {post.title}
+      </h1>
+      <p className="mb-6 text-lg font-normal  lg:text-xl sm:px-16 xl:px-48 ">
+        {post.content}
+      </p>
     </div>
   );
 }

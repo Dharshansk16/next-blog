@@ -8,7 +8,7 @@ interface Params {
 
 export default function page({ params }: { params: Params }) {
   return (
-    <div className="flex flex-col items-center text-center pt-24 px-32">
+    <div className="flex flex-col items-center text-center pt-16 px-32">
       <Suspense fallback={<Loading />}>
         <Post id={params.id} />
       </Suspense>
