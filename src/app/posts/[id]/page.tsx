@@ -3,7 +3,7 @@ import Post from "@/components/posts/Post";
 import React, { Suspense } from "react";
 
 interface Params {
-  id: String;
+  id: string;
 }
 
 export default function page({ params }: { params: Params }) {
