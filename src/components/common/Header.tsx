@@ -50,11 +50,27 @@ export default function Header() {
             </li>
           ))}
           {isAuthenticated ? (
-            <li>
-              <LogoutLink>Logout</LogoutLink>
+            <li
+              onMouseEnter={() => {
+                setIsHoverIndex(33);
+              }}
+            >
+              <LogoutLink
+                className={isHoverIndex === 33 ? "text-zinc-100" : ""}
+              >
+                Logout
+              </LogoutLink>
             </li>
           ) : (
-            <LoginLink>Login</LoginLink>
+            <li
+              onMouseEnter={() => {
+                setIsHoverIndex(34);
+              }}
+            >
+              <LoginLink className={isHoverIndex === 34 ? "text-zinc-100" : ""}>
+                Login
+              </LoginLink>
+            </li>
           )}
         </ul>
       </nav>
